@@ -8,6 +8,7 @@
 \usepackage{caption}
 \usepackage{subcaption}
 
+
 \author{Jeremy Scheurer}
 \title{Solutions to exercises of "Reinforcement Learning: An Introduction" (Sutton and Barto)}
 \date{Created in February 2018}
@@ -133,6 +134,32 @@ If you recevied no feed at all you would not have access to the Markov state of 
 
 \subsection{Bellmann equation}
 \textit{What is the Bellman equation for action values, that is, for $q_{\pi}$? It must give the action value $q_{\pi}(s,a)$ in terms of the action values, $q_{\pi}s',a')$, of possible successors to the state-action pair (s,a). As a hint, the backup diagram corresponding to this equation is given in Figure 3.4 (right). Show the sequence of equations analogous to (3.12), but for action values.}
+
+	$	q_{\pi}(s,a) = E_{\pi}[G_t| S_t = s, A_t = a] $\\
+$= E_{\pi}[\sum_{k=0}^{\infty}\gamma^kR_{t+k+1}| S_t = s, A_t = a] =$\\
+$= E_{\pi}[R_{t+1} + \gamma \sum_{k=0}^{\infty} \gamma^k R_{t+k+2}| S_t = s, A_t = a]$\\ 
+$= E_{\pi}[R_{t+1} + \gamma G_{t+1}| S_t = s, A_t = a]$\\
+$= E_{\pi}[R_{t+1}| S_t = s, A_t = a] + E_{\pi}[\gamma G_{t+1}| S_t = s, A_t = a]$\\
+$= E_{\pi}[R_{t+1}| S_t = s, A_t = a] + E_{\pi}[E_{\pi}[\gamma G_{t+1}| S_{t+1}=s', A_{t+1}=a']| S_t=s, A_t=a]$ 
+$= E_{\pi}[R_{t+1}| S_t = s, A_t = a] + \gamma E_{\pi}[q_{\pi}(s',a')| S_t = s, A_t = a]$\\
+$= E_{\pi}[R_{t+1} + \gamma q_{\pi}(s',a')|S_t = s, A_t = a]$\\
+$= \sum_{R_{t+1}+\gamma q_{\pi}(s',a')}^{} P(R_{t+1} + \gamma q_{\pi}(s',a')| S_t = s , A_t = a)[R_{t+1} + \gamma q_{\pi}(s',a')]$\\
+$= \sum_{a'} \sum_{s'} \sum_{r} P(r + \gamma q_{\pi}(s',a')|S_t = s, A_t = a)[R_{t+1} + \gamma q_{\pi}(s',a')]$
+
+\subsection{Prove Bellman on Example}
+\textit{The Bellman equation (3.12) must hold for each state for the value function $v_{\pi}$ shown in Figure 3.5(right). As an example, show numerically that this equation holds for the center state, valued at $+0.7$, with respect to its four neighboring states, valued at $+2.3, +0.4, -0.4,$ and $+0.7$. (These numbers are accurate only to one decimal place.)}
+
+Note the Bellmann equation: 
+$v_{\pi}(s) = \sum_{a}\pi(a|s) \sum_{s',r}p(s',r|a,s)[r+ \gamma v_{\pi}(s')]$\\
+We know that the first term is always 0.25 because we have 4 directions and they are equiprobable. Thus each action has the same probability. Note that if we take action i then the second term will always be 0 for s' and r that do not correspond. That means s' has to be the next state reachable with action i and r has to be 0, because the example in the book states that all states get a reward of 0 (except some special cases which don't apply here). The book also states that we have a discounting factor $\gamma = 0.9$. Thus we can conclude the following: 
+$v_{\pi}(s) = 0.25*0.9(0.4-0.4+0.7+2.3) = 0.675$\\
+Thus we have proven that the Bellman equation is satisfied for the central element. 
+
+
+
+
+
+
 
 \end{document}
 
