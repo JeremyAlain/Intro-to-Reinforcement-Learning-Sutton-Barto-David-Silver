@@ -1,4 +1,4 @@
-\contentsline {section}{\numberline {1}Chapter 1: The reinforcement learning problem}{2}
+\contentsline {section}{\numberline {1}The reinforcement learning problem}{2}
 \contentsline {subsection}{\numberline {1.1}Self-Play }{2}
 \contentsline {subsection}{\numberline {1.2}Symmetries}{2}
 \contentsline {subsection}{\numberline {1.3}Greedy Play }{3}
@@ -8,5 +8,13 @@
 \contentsline {subsection}{\numberline {2.1}Longterm epsilon greedy}{4}
 \contentsline {subsection}{\numberline {2.2}Step-size parameters}{4}
 \contentsline {subsection}{\numberline {2.3}Optimistic vs Realistic greedy}{5}
-\contentsline {subsection}{\numberline {2.4}Programming: }{5}
+\contentsline {subsection}{\numberline {2.4}Programming: Comparison of stepsizes}{5}
 \contentsline {subsection}{\numberline {2.5}Spike in UCB plot}{6}
+\contentsline {section}{\numberline {3}Finite Markov Decision Processes}{7}
+\contentsline {subsection}{\numberline {3.1}Reinforcement Learning Applications}{7}
+\contentsline {subsection}{\numberline {3.2}Exception Problems}{8}
+\contentsline {subsection}{\numberline {3.3}Driving}{8}
+\contentsline {subsection}{\numberline {3.4}Pole-Balancing}{9}
+\contentsline {subsection}{\numberline {3.5}Maze-robot}{10}
+\contentsline {subsection}{\numberline {3.6}Broken Vision System}{10}
+\contentsline {subsection}{\numberline {3.7}Bellmann equation}{11}
